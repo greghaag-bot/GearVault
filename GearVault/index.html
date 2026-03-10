@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GearVault — Photography Gear Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<link rel="stylesheet" href="./base.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" data-nav="hero">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="GearVault Logo">
+          <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M10 20 L16 8 L22 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="16" cy="16" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="16" y1="26" x2="16" y2="30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="2" y1="16" x2="6" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="26" y1="16" x2="30" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>GearVault</span>
+      </a>
+      <div class="nav-links">
+        <a href="#" class="nav-link active" data-nav="gear">My Gear</a>
+        <a href="#" class="nav-link" data-nav="trip">Trip Planner</a>
+        <a href="#" class="nav-link" data-nav="links">Links</a>
+        <a href="#" class="nav-link" data-nav="techniques">Techniques</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+          <i data-lucide="sun" class="theme-icon-light"></i>
+          <i data-lucide="moon" class="theme-icon-dark"></i>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#" class="mobile-link active" data-nav="gear">My Gear</a>
+      <a href="#" class="mobile-link" data-nav="trip">Trip Planner</a>
+      <a href="#" class="mobile-link" data-nav="links">Links</a>
+      <a href="#" class="mobile-link" data-nav="techniques">Techniques</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero-section">
+    <div class="hero-bg">
+      <img src="./assets/hero-bg.jpg" alt="" loading="eager">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-title">GearVault</h1>
+      <p class="hero-subtitle">Track, plan, and optimize your photography kit</p>
+      <button class="hero-cta" data-nav="gear">
+        <span>Open Gear Inventory</span>
+        <i data-lucide="arrow-down"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <!-- ===== MY GEAR SECTION ===== -->
+    <section class="section" id="section-gear">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">My Gear</h2>
+          <p class="section-desc">Manage your complete photography inventory</p>
+        </div>
+        <button class="btn btn-primary" id="addGearBtn">
+          <i data-lucide="plus"></i>
+          <span>Add Gear</span>
+        </button>
+      </div>
+
+      <!-- Stats row -->
+      <div class="stats-row" id="gearStats">
+        <div class="stat-card">
+          <span class="stat-label">Total Items</span>
+          <span class="stat-value" id="statTotalItems">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Total Weight</span>
+          <span class="stat-value" id="statTotalWeight">0 lb</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Categories</span>
+          <span class="stat-value" id="statCategories">0</span>
+        </div>
+      </div>
+
+      <!-- Filter/Search -->
+      <div class="filter-bar">
+        <div class="search-box">
+          <i data-lucide="search"></i>
+          <input type="text" id="gearSearch" placeholder="Search gear...">
+        </div>
+        <div class="filter-chips" id="categoryFilter">
+          <button class="chip active" data-category="all">All</button>
+        </div>
+      </div>
+
+      <!-- Gear Table -->
+      <div class="table-container">
+        <table class="gear-table" id="gearTable">
+          <thead>
+            <tr>
+              <th class="th-sortable" data-sort="name">Item <i data-lucide="chevrons-up-down"></i></th>
+              <th class="th-sortable" data-sort="category">Category <i data-lucide="chevrons-up-down"></i></th>
+              <th class="th-sortable th-right" data-sort="weight">Weight (lb) <i data-lucide="chevrons-up-down"></i></th>
+              <th class="th-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="gearBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== TRIP PLANNER SECTION ===== -->
+    <section class="section hidden" id="section-trip">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Trip Planner</h2>
+          <p class="section-desc">Select gear for your next shoot and track total pack weight</p>
+        </div>
+        <button class="btn btn-secondary" id="clearTripBtn">
+          <i data-lucide="rotate-ccw"></i>
+          <span>Clear Selection</span>
+        </button>
+      </div>
+
+      <!-- Trip weight summary -->
+      <div class="trip-summary" id="tripSummary">
+        <div class="trip-weight-ring">
+          <svg viewBox="0 0 120 120" class="weight-ring">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="var(--color-border)" stroke-width="8"/>
+            <circle cx="60" cy="60" r="52" fill="none" stroke="var(--color-primary)" stroke-width="8"
+              stroke-dasharray="326.73" stroke-dashoffset="326.73" stroke-linecap="round"
+              id="weightRing" transform="rotate(-90 60 60)"/>
+          </svg>
+          <div class="trip-weight-text">
+            <span class="trip-weight-value" id="tripWeightValue">0</span>
+            <span class="trip-weight-unit">lb</span>
+          </div>
+        </div>
+        <div class="trip-details">
+          <div class="trip-detail-row">
+            <span>Items selected</span>
+            <span id="tripItemCount">0</span>
+          </div>
+          <div class="trip-detail-row">
+            <span>Weight limit</span>
+            <div class="weight-limit-input">
+              <input type="number" id="weightLimit" value="30" min="1" max="100" step="1">
+              <span>lb</span>
+            </div>
+          </div>
+          <div class="trip-detail-row">
+            <span>Remaining</span>
+            <span id="tripRemaining">30 lb</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trip gear selection -->
+      <div class="trip-gear-list" id="tripGearList"></div>
+    </section>
+
+    <!-- ===== LINKS SECTION ===== -->
+    <section class="section hidden" id="section-links">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Favorite Links</h2>
+          <p class="section-desc">Quick access to your go-to photography resources</p>
+        </div>
+        <button class="btn btn-primary" id="addLinkBtn">
+          <i data-lucide="plus"></i>
+          <span>Add Link</span>
+        </button>
+      </div>
+      <div class="links-grid" id="linksGrid"></div>
+    </section>
+
+    <!-- ===== TECHNIQUES SECTION ===== -->
+    <section class="section hidden" id="section-techniques">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Techniques & Calculations</h2>
+          <p class="section-desc">Photography references, formulas, and field notes</p>
+        </div>
+        <button class="btn btn-primary" id="addTechniqueBtn">
+          <i data-lucide="plus"></i>
+          <span>Add Section</span>
+        </button>
+      </div>
+
+      <!-- Reference Guides -->
+      <div class="ref-guides">
+        <div class="ref-card">
+          <div class="ref-card-icon">
+            <i data-lucide="book-open"></i>
+          </div>
+          <div class="ref-card-content">
+            <h3 class="ref-card-title">Field Guide to Technical Cameras</h3>
+            <p class="ref-card-author">By Dave Chew — Wilderness Photographer</p>
+            <p class="ref-card-desc">A comprehensive 59-page field reference covering the LEAN technical camera process, packing strategies, setup procedures, image capture methods, and camera movements.</p>
+            <div class="ref-card-topics">
+              <span class="ref-topic">Setup &amp; Packing</span>
+              <span class="ref-topic">Tilt / Rise / Fall / Shift</span>
+              <span class="ref-topic">LCC Process</span>
+              <span class="ref-topic">Depth of Field</span>
+              <span class="ref-topic">Image Capture</span>
+              <span class="ref-topic">Weather Conditions</span>
+              <span class="ref-topic">Shimming &amp; Lens Testing</span>
+            </div>
+            <button class="btn btn-primary ref-card-btn" onclick="downloadPDF('assets/field-guide-technical-cameras.pdf', 'Field-Guide-To-Technical-Cameras.pdf')">
+              <i data-lucide="download"></i>
+              <span>Download PDF</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Built-in calculators -->
+      <div class="calc-grid">
+        <div class="calc-card">
+          <div class="calc-header">
+            <i data-lucide="aperture"></i>
+            <h3>Depth of Field</h3>
+          </div>
+          <div class="calc-body">
+            <div class="calc-field">
+              <label>Focal Length (mm)</label>
+              <input type="number" id="dofFocal" value="50" min="1">
+            </div>
+            <div class="calc-field">
+              <label>Aperture (f/)</label>
+              <input type="number" id="dofAperture" value="2.8" min="0.7" step="0.1">
+            </div>
+            <div class="calc-field">
+              <label>Distance to Subject (ft)</label>
+              <input type="number" id="dofDistance" value="10" min="0.1" step="0.1">
+            </div>
+            <div class="calc-field">
+              <label>Sensor Size</label>
+              <select id="dofSensor">
+                <option value="0.043">Medium Format (54x40)</option>
+                <option value="0.029" selected>Full Frame (36x24)</option>
+                <option value="0.019">APS-C (23.5x15.6)</option>
+                <option value="0.013">Micro 4/3</option>
+              </select>
+            </div>
+            <div class="calc-result" id="dofResult">
+              <div class="calc-result-row"><span>Near Limit</span><span id="dofNear">—</span></div>
+              <div class="calc-result-row"><span>Far Limit</span><span id="dofFar">—</span></div>
+              <div class="calc-result-row highlight"><span>Total DoF</span><span id="dofTotal">—</span></div>
+            </div>
+            <button class="btn btn-sm" onclick="calculateDOF()">Calculate</button>
+          </div>
+        </div>
+
+        <div class="calc-card">
+          <div class="calc-header">
+            <i data-lucide="timer"></i>
+            <h3>Exposure Calculator</h3>
+          </div>
+          <div class="calc-body">
+            <div class="calc-field">
+              <label>Current Shutter Speed</label>
+              <select id="expShutter">
+                <option value="0.00025">1/4000</option>
+                <option value="0.0005">1/2000</option>
+                <option value="0.001">1/1000</option>
+                <option value="0.002">1/500</option>
+                <option value="0.004">1/250</option>
+                <option value="0.008" selected>1/125</option>
+                <option value="0.0167">1/60</option>
+                <option value="0.0333">1/30</option>
+                <option value="0.0667">1/15</option>
+                <option value="0.125">1/8</option>
+                <option value="0.25">1/4</option>
+                <option value="0.5">1/2</option>
+                <option value="1">1s</option>
+                <option value="2">2s</option>
+                <option value="4">4s</option>
+                <option value="8">8s</option>
+                <option value="15">15s</option>
+                <option value="30">30s</option>
+              </select>
+            </div>
+            <div class="calc-field">
+              <label>ND Filter (stops)</label>
+              <select id="expND">
+                <option value="0">None</option>
+                <option value="1">ND2 (1 stop)</option>
+                <option value="2">ND4 (2 stops)</option>
+                <option value="3">ND8 (3 stops)</option>
+                <option value="4">ND16 (4 stops)</option>
+                <option value="6">ND64 (6 stops)</option>
+                <option value="8">ND256 (8 stops)</option>
+                <option value="10">ND1000 (10 stops)</option>
+                <option value="15">ND32768 (15 stops)</option>
+              </select>
+            </div>
+            <div class="calc-result" id="expResult">
+              <div class="calc-result-row highlight"><span>New Shutter Speed</span><span id="expNew">—</span></div>
+            </div>
+            <button class="btn btn-sm" onclick="calculateExposure()">Calculate</button>
+          </div>
+        </div>
+
+        <div class="calc-card">
+          <div class="calc-header">
+            <i data-lucide="star"></i>
+            <h3>Night Sky / 500 Rule</h3>
+          </div>
+          <div class="calc-body">
+            <div class="calc-field">
+              <label>Focal Length (mm)</label>
+              <input type="number" id="starFocal" value="24" min="1">
+            </div>
+            <div class="calc-field">
+              <label>Sensor</label>
+              <select id="starSensor">
+                <option value="1">Full Frame</option>
+                <option value="1.5">APS-C (Nikon/Sony)</option>
+                <option value="1.6">APS-C (Canon)</option>
+                <option value="2">Micro 4/3</option>
+                <option value="0.79">Medium Format</option>
+              </select>
+            </div>
+            <div class="calc-result">
+              <div class="calc-result-row"><span>500 Rule</span><span id="star500">—</span></div>
+              <div class="calc-result-row highlight"><span>NPF Rule (sharp)</span><span id="starNPF">—</span></div>
+            </div>
+            <button class="btn btn-sm" onclick="calculateStar()">Calculate</button>
+          </div>
+        </div>
+
+        <div class="calc-card calc-card-wide">
+          <div class="calc-header">
+            <i data-lucide="scan-line"></i>
+            <h3>Extension Tube Calculator</h3>
+          </div>
+          <div class="calc-body">
+            <div class="calc-row-2col">
+              <div class="calc-field">
+                <label>Lens Focal Length (mm)</label>
+                <input type="number" id="extFocal" value="90" min="1">
+              </div>
+              <div class="calc-field">
+                <label>Lens Native Magnification (X)</label>
+                <input type="number" id="extNativeMag" value="0.15" min="0" step="0.01">
+              </div>
+            </div>
+            <div class="calc-row-2col">
+              <div class="calc-field">
+                <label>Extension Tube Length (mm)</label>
+                <input type="number" id="extLength" value="25" min="0" step="1">
+              </div>
+              <div class="calc-field">
+                <label>Aperture Set on Lens (f/)</label>
+                <input type="number" id="extAperture" value="5.6" min="0.7" step="0.1">
+              </div>
+            </div>
+            <div class="calc-row-2col">
+              <div class="calc-field">
+                <label>Sensor Size</label>
+                <select id="extSensor">
+                  <option value="54x40">Medium Format (54x40mm)</option>
+                  <option value="36x24" selected>Full Frame (36x24mm)</option>
+                  <option value="23.5x15.6">APS-C (23.5x15.6mm)</option>
+                  <option value="17.3x13">Micro 4/3 (17.3x13mm)</option>
+                </select>
+              </div>
+              <div class="calc-field">
+                <label>Close-Up Lens Diopters (optional)</label>
+                <input type="number" id="extDiopter" value="0" min="0" step="0.5">
+              </div>
+            </div>
+            <div class="calc-result" id="extResult">
+              <div class="calc-result-row"><span>Magnification Gain from Tube</span><span id="extMagGain">—</span></div>
+              <div class="calc-result-row"><span>Magnification Gain from Diopter</span><span id="extDiopterGain">—</span></div>
+              <div class="calc-result-row highlight"><span>Total Magnification</span><span id="extTotalMag">—</span></div>
+              <div class="calc-result-row"><span>Effective f-stop</span><span id="extEffFstop">—</span></div>
+              <div class="calc-result-row"><span>Light Loss (stops)</span><span id="extLightLoss">—</span></div>
+              <div class="calc-result-row"><span>Field of View (approx.)</span><span id="extFOV">—</span></div>
+              <div class="calc-result-row"><span>Working Distance (approx.)</span><span id="extWorkDist">—</span></div>
+            </div>
+            <button class="btn btn-sm" onclick="calculateExtension()">Calculate</button>
+            <p class="calc-note">Based on thin-lens approximations. Working distance is measured from the front of the lens. Results are approximate — real-world values vary by lens design.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- User-added technique sections -->
+      <div id="techniqueSections"></div>
+    </section>
+  </main>
+
+  <!-- Modal overlay -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <h3 id="modalTitle">Add Gear</h3>
+        <button class="modal-close" id="modalClose"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <footer class="footer">
+    <p>
+      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">
+        Created with Perplexity Computer
+      </a>
+    </p>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
