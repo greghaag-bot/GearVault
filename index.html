@@ -47,7 +47,7 @@
       <div class="nav-links">
         <a href="#" class="nav-link active" data-nav="gear">My Gear</a>
         <a href="#" class="nav-link" data-nav="trip">Gear Planner</a>
-        <a href="#" class="nav-link" data-nav="trips">Trip Planner</a>
+        <a href="#" class="nav-link" data-nav="locations">Locations</a>
         <a href="#" class="nav-link" data-nav="links">Links</a>
         <a href="#" class="nav-link" data-nav="techniques">Techniques</a>
         <a href="#" class="nav-link" data-nav="resources">Resources</a>
@@ -67,7 +67,7 @@
     <div class="mobile-menu" id="mobileMenu">
       <a href="#" class="mobile-link active" data-nav="gear">My Gear</a>
       <a href="#" class="mobile-link" data-nav="trip">Gear Planner</a>
-      <a href="#" class="mobile-link" data-nav="trips">Trip Planner</a>
+      <a href="#" class="mobile-link" data-nav="locations">Locations</a>
       <a href="#" class="mobile-link" data-nav="links">Links</a>
       <a href="#" class="mobile-link" data-nav="techniques">Techniques</a>
       <a href="#" class="mobile-link" data-nav="resources">Resources</a>
@@ -199,37 +199,32 @@
       <div class="trip-gear-list" id="tripGearList"></div>
     </section>
 
-    <!-- ===== TRIP PLANNER SECTION ===== -->
-    <section class="section hidden" id="section-trips">
+    <!-- ===== LOCATION SCOUTING SECTION ===== -->
+    <section class="section hidden" id="section-locations">
       <div class="section-header">
         <div>
-          <h2 class="section-title">Trip Planner</h2>
-          <p class="section-desc">Build detailed itineraries for photography trips</p>
+          <h2 class="section-title">Location Scouting</h2>
+          <p class="section-desc">Organize and plan your shooting locations by region</p>
         </div>
-        <button class="btn btn-primary" id="addTripBtn">
+        <button class="btn btn-primary" id="addLocationBtn">
           <i data-lucide="plus"></i>
-          <span>New Trip</span>
+          <span>Add Location</span>
         </button>
       </div>
 
-      <!-- Trip list view -->
-      <div id="tripListView">
-        <div class="trips-grid" id="tripsGrid"></div>
+      <!-- Region filter -->
+      <div class="filter-bar">
+        <div class="search-box">
+          <i data-lucide="search"></i>
+          <input type="text" id="locationSearch" placeholder="Search locations...">
+        </div>
+        <div class="filter-chips" id="regionFilter">
+          <button class="chip active" data-region="all">All</button>
+        </div>
       </div>
 
-      <!-- Trip detail view (hidden by default) -->
-      <div id="tripDetailView" style="display:none;">
-        <button class="btn btn-ghost trip-back-btn" id="tripBackBtn">
-          <i data-lucide="arrow-left"></i>
-          <span>All Trips</span>
-        </button>
-        <div class="trip-detail-header" id="tripDetailHeader"></div>
-        <div class="trip-days-container" id="tripDaysContainer"></div>
-        <button class="btn btn-secondary trip-add-day-btn" id="addTripDayBtn">
-          <i data-lucide="plus"></i>
-          <span>Add Day</span>
-        </button>
-      </div>
+      <!-- Location cards -->
+      <div class="loc-grid" id="locationsGrid"></div>
     </section>
 
     <!-- ===== LINKS SECTION ===== -->
@@ -564,7 +559,7 @@
   </footer>
 
   <script src="./app.js"></script>
-  <script src="./trip-planner.js"></script>
+  <script src="./locations.js"></script>
   <script src="./weather.js"></script>
 </body>
 </html>

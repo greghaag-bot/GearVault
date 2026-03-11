@@ -74,6 +74,7 @@ function init() {
   renderTrip();
   renderLinks();
   renderTechniques();
+  if (typeof initLocations === 'function') initLocations();
   updateStats();
   bindEvents();
   lucide.createIcons();
