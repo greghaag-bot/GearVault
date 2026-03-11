@@ -307,6 +307,7 @@
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
+
 .section-header {
   display: flex;
   align-items: flex-start;
@@ -815,87 +816,6 @@
   margin-top: var(--space-2);
 }
 
-/* Reference guide cards */
-.ref-guides {
-  margin-bottom: var(--space-6);
-}
-.ref-card {
-  display: flex;
-  gap: var(--space-5);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  padding: var(--space-6);
-  transition: border-color 0.2s ease;
-}
-.ref-card:hover {
-  border-color: var(--color-primary);
-}
-.ref-card-icon {
-  flex-shrink: 0;
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-primary);
-  color: #fff;
-  border-radius: var(--radius-lg);
-}
-.ref-card-icon svg { width: 28px; height: 28px; }
-.ref-card-content {
-  flex: 1;
-  min-width: 0;
-}
-.ref-card-title {
-  font-family: var(--font-display);
-  font-size: var(--text-lg);
-  font-weight: 600;
-  color: var(--color-text);
-  margin-bottom: var(--space-1);
-}
-.ref-card-author {
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-3);
-}
-.ref-card-desc {
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-  line-height: 1.6;
-  margin-bottom: var(--space-4);
-}
-.ref-card-topics {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-bottom: var(--space-4);
-}
-.ref-topic {
-  font-size: var(--text-xs);
-  padding: var(--space-1) var(--space-2);
-  background: var(--color-surface-2);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
-  color: var(--color-text-muted);
-  white-space: nowrap;
-}
-.ref-card-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-@media (max-width: 640px) {
-  .ref-card {
-    flex-direction: column;
-    padding: var(--space-4);
-  }
-  .ref-card-icon {
-    width: 44px;
-    height: 44px;
-  }
-  .ref-card-icon svg { width: 22px; height: 22px; }
-}
 
 /* Technique section cards (user-added) */
 .technique-card {
