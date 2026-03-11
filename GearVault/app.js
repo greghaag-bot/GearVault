@@ -48,24 +48,8 @@ const DEFAULT_GEAR = [
   { name: "Misc.", weight: 2.0, category: "Personal" },
   { name: '16" MacBook Pro', weight: 4.3, category: "Electronics" },
   { name: "11-inch iPad Air", weight: 1.02, category: "Electronics" },
-  { name: "Leica S007", weight: 2.8, category: "Camera Bodies" },
-  { name: "Leica 24mm", weight: 2.8, category: "Lenses" },
-  { name: "Leica 70mm", weight: 1.6, category: "Lenses" },
-  { name: "Leica 120mm", weight: 2.5, category: "Lenses" },
   { name: "Hasselblad HC210", weight: 2.9, category: "Lenses" },
-  { name: "Panasonic Lumix S1R", weight: 2.24, category: "Camera Bodies" },
-  { name: "Panasonic 24-105 77mm", weight: 1.5, category: "Lenses" },
-  { name: "Panasonic 70-200", weight: 2.2, category: "Lenses" },
-  { name: "Panasonic 2x Teleconverter", weight: 0.5, category: "Lenses" },
-  { name: "Fuji GFX 100S", weight: 2.25, category: "Camera Bodies" },
-  { name: "Fujifilm GF 35-70 f/4.5-5.6", weight: 0.97, category: "Lenses" },
-  { name: "Fujifilm GF 23mm f/4", weight: 2.06, category: "Lenses" },
-  { name: "Fujifilm GF 45mm f/2.8", weight: 1.25, category: "Lenses" },
-  { name: "Fujifilm GF 110mm f/2", weight: 2.5, category: "Lenses" },
-  { name: "Fujifilm GF 250mm f/4", weight: 3.94, category: "Lenses" },
-  { name: "Fujifilm GF 1.4X TC WR Teleconverter", weight: 0.88, category: "Lenses" },
   { name: "Macro Adapter", weight: 0.5, category: "Accessories" },
-  { name: "Fujifilm GF 100-200mm f/5.6", weight: 2.31, category: "Lenses" },
   { name: "Hasselblad X2D II", weight: 1.8, category: "Camera Bodies" },
   { name: "Hasselblad XCD 55mm f/2.5 V", weight: 0.82, category: "Lenses" },
   { name: "Hasselblad XCD 25mm f/2.5 V", weight: 1.3, category: "Lenses" },
@@ -76,12 +60,10 @@ const DEFAULT_GEAR = [
 ];
 
 const DEFAULT_LINKS = [
-  { title: "DPReview", url: "https://www.dpreview.com", description: "Camera and lens reviews, news, and community forums" },
-  { title: "Luminous Landscape", url: "https://luminous-landscape.com", description: "In-depth articles on landscape and fine art photography" },
-  { title: "PetaPixel", url: "https://petapixel.com", description: "Photography news, reviews, and inspiration" },
-  { title: "500px", url: "https://500px.com", description: "Photography community and portfolio showcase" },
-  { title: "Phase One", url: "https://www.phaseone.com", description: "Medium format digital camera systems" },
-  { title: "PhotoPills", url: "https://www.photopills.com", description: "Photography planning tools and calculators" },
+  { title: "Capture Integration", url: "https://www.captureintegration.com", description: "High-end medium format, technical cameras, and digital back specialists" },
+  { title: "GetDPI", url: "https://getdpi.com", description: "Photographic forum with in-depth discussions on medium format and technical cameras" },
+  { title: "Photographer's Trail Notes", url: "https://photographerstrailnotes.com", description: "Location guides for landscape photographers with 185+ shooting locations" },
+  { title: "Tim Parkin Tilt-Shift Simulator", url: "http://static.timparkin.co.uk/static/dslr-tilt-shift/", description: "Interactive tilt-shift depth of field simulator for landscape photography" },
 ];
 
 // ---- Initialize ----
@@ -455,7 +437,7 @@ function openLinkModal(id) {
   document.getElementById("modalBody").innerHTML = `
     <div class="form-field">
       <label for="linkTitle">Title</label>
-      <input type="text" id="linkTitle" value="${item ? escapeHtml(item.title) : ""}" placeholder="e.g. DPReview">
+      <input type="text" id="linkTitle" value="${item ? escapeHtml(item.title) : ""}" placeholder="e.g. GetDPI">
     </div>
     <div class="form-field">
       <label for="linkUrl">URL</label>
@@ -730,26 +712,6 @@ function showToast(message, type) {
     toast.style.animation = "toastOut 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards";
     setTimeout(() => toast.remove(), 300);
   }, 2500);
-}
-
-// ---- PDF Download ----
-function downloadPDF(url, filename) {
-  fetch(url)
-    .then(function (r) { return r.blob(); })
-    .then(function (blob) {
-      var a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download = filename;
-      document.body.appendChild(a);
-      a.click();
-      setTimeout(function () {
-        URL.revokeObjectURL(a.href);
-        a.remove();
-      }, 100);
-    })
-    .catch(function () {
-      showToast("Download failed — try again", "error");
-    });
 }
 
 // ---- Utility ----
