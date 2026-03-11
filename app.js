@@ -139,7 +139,8 @@ function bindEvents() {
   // Add buttons
   document.getElementById("addGearBtn").addEventListener("click", () => openGearModal());
   document.getElementById("addLinkBtn").addEventListener("click", () => openLinkModal());
-  document.getElementById("addTechniqueBtn").addEventListener("click", () => openTechniqueModal());
+  const techBtn = document.getElementById("addTechniqueBtn");
+  if (techBtn) techBtn.addEventListener("click", () => openTechniqueModal());
   document.getElementById("clearTripBtn").addEventListener("click", clearTrip);
 
   // Weight limit
