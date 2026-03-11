@@ -74,6 +74,7 @@ function init() {
   renderTrip();
   renderLinks();
   renderTechniques();
+  if (typeof initLocations === 'function') initLocations();
   updateStats();
   bindEvents();
   lucide.createIcons();
@@ -139,7 +140,8 @@ function bindEvents() {
   // Add buttons
   document.getElementById("addGearBtn").addEventListener("click", () => openGearModal());
   document.getElementById("addLinkBtn").addEventListener("click", () => openLinkModal());
-  document.getElementById("addTechniqueBtn").addEventListener("click", () => openTechniqueModal());
+  const addTechBtn = document.getElementById("addTechniqueBtn");
+  if (addTechBtn) addTechBtn.addEventListener("click", () => openTechniqueModal());
   document.getElementById("clearTripBtn").addEventListener("click", clearTrip);
 
   // Weight limit
