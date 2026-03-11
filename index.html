@@ -50,6 +50,7 @@
         <a href="#" class="nav-link" data-nav="links">Links</a>
         <a href="#" class="nav-link" data-nav="techniques">Techniques</a>
         <a href="#" class="nav-link" data-nav="resources">Resources</a>
+        <a href="#" class="nav-link" data-nav="weather">Weather</a>
       </div>
       <div class="nav-actions">
         <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
@@ -68,6 +69,7 @@
       <a href="#" class="mobile-link" data-nav="links">Links</a>
       <a href="#" class="mobile-link" data-nav="techniques">Techniques</a>
       <a href="#" class="mobile-link" data-nav="resources">Resources</a>
+      <a href="#" class="mobile-link" data-nav="weather">Weather</a>
     </div>
   </nav>
 
@@ -462,6 +464,49 @@
         </a>
       </div>
     </section>
+
+    <!-- ===== WEATHER SECTION ===== -->
+    <section class="section hidden" id="section-weather">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Weather</h2>
+          <p class="section-desc">Check conditions for your next shoot</p>
+        </div>
+      </div>
+
+      <!-- Location search -->
+      <div class="weather-search-container">
+        <div class="weather-search-box">
+          <i data-lucide="map-pin"></i>
+          <input type="text" id="weatherSearch" placeholder="Search city or location..." autocomplete="off">
+          <div class="weather-search-results" id="weatherSearchResults"></div>
+        </div>
+      </div>
+
+      <!-- Weather content (hidden until location selected) -->
+      <div id="weatherContent" class="weather-content" style="display:none;">
+        <!-- Current conditions -->
+        <div class="weather-current" id="weatherCurrent"></div>
+
+        <!-- Sun & Golden Hour -->
+        <div class="weather-sun" id="weatherSun"></div>
+
+        <!-- 7-day forecast -->
+        <div class="weather-forecast" id="weatherForecast"></div>
+      </div>
+
+      <!-- Empty state -->
+      <div id="weatherEmpty" class="empty-state">
+        <i data-lucide="cloud-sun"></i>
+        <p>Search for a location to see the weather forecast.</p>
+      </div>
+
+      <!-- Loading state -->
+      <div id="weatherLoading" class="weather-loading" style="display:none;">
+        <div class="weather-spinner"></div>
+        <p>Loading weather data...</p>
+      </div>
+    </section>
   </main>
 
   <!-- Modal overlay -->
@@ -487,5 +532,6 @@
   </footer>
 
   <script src="./app.js"></script>
+  <script src="./weather.js"></script>
 </body>
 </html>
