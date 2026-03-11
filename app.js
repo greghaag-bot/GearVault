@@ -697,6 +697,7 @@ function openModal() {
 
 function closeModal() {
   document.getElementById("modalOverlay").classList.remove("open");
+  document.getElementById("modal").classList.remove("modal-wide");
   document.body.style.overflow = "";
 }
 
