@@ -74,7 +74,6 @@ function init() {
   renderTrip();
   renderLinks();
   renderTechniques();
-  if (typeof initLocations === 'function') initLocations();
   updateStats();
   bindEvents();
   lucide.createIcons();
@@ -140,8 +139,7 @@ function bindEvents() {
   // Add buttons
   document.getElementById("addGearBtn").addEventListener("click", () => openGearModal());
   document.getElementById("addLinkBtn").addEventListener("click", () => openLinkModal());
-  const addTechBtn = document.getElementById("addTechniqueBtn");
-  if (addTechBtn) addTechBtn.addEventListener("click", () => openTechniqueModal());
+  document.getElementById("addTechniqueBtn").addEventListener("click", () => openTechniqueModal());
   document.getElementById("clearTripBtn").addEventListener("click", clearTrip);
 
   // Weight limit
@@ -336,7 +334,7 @@ function deleteGear(id) {
   showToast("Gear removed", "success");
 }
 
-// ---- Trip Planner ----
+// ---- Gear Planner ----
 function renderTrip() {
   const container = document.getElementById("tripGearList");
   const sorted = [...gearItems].sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));

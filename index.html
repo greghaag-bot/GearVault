@@ -46,8 +46,7 @@
       </a>
       <div class="nav-links">
         <a href="#" class="nav-link active" data-nav="gear">My Gear</a>
-        <a href="#" class="nav-link" data-nav="trip">Trip Planner</a>
-        <a href="#" class="nav-link" data-nav="locations">Locations</a>
+        <a href="#" class="nav-link" data-nav="trip">Gear Planner</a>
         <a href="#" class="nav-link" data-nav="links">Links</a>
         <a href="#" class="nav-link" data-nav="techniques">Techniques</a>
         <a href="#" class="nav-link" data-nav="resources">Resources</a>
@@ -66,8 +65,7 @@
     <!-- Mobile menu -->
     <div class="mobile-menu" id="mobileMenu">
       <a href="#" class="mobile-link active" data-nav="gear">My Gear</a>
-      <a href="#" class="mobile-link" data-nav="trip">Trip Planner</a>
-      <a href="#" class="mobile-link" data-nav="locations">Locations</a>
+      <a href="#" class="mobile-link" data-nav="trip">Gear Planner</a>
       <a href="#" class="mobile-link" data-nav="links">Links</a>
       <a href="#" class="mobile-link" data-nav="techniques">Techniques</a>
       <a href="#" class="mobile-link" data-nav="resources">Resources</a>
@@ -153,7 +151,7 @@
     <section class="section hidden" id="section-trip">
       <div class="section-header">
         <div>
-          <h2 class="section-title">Trip Planner</h2>
+          <h2 class="section-title">Gear Planner</h2>
           <p class="section-desc">Select gear for your next shoot and track total pack weight</p>
         </div>
         <button class="btn btn-secondary" id="clearTripBtn">
@@ -197,34 +195,6 @@
 
       <!-- Trip gear selection -->
       <div class="trip-gear-list" id="tripGearList"></div>
-    </section>
-
-    <!-- ===== LOCATION SCOUTING SECTION ===== -->
-    <section class="section hidden" id="section-locations">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title">Location Scouting</h2>
-          <p class="section-desc">Organize and plan your shooting locations by region</p>
-        </div>
-        <button class="btn btn-primary" id="addLocationBtn">
-          <i data-lucide="plus"></i>
-          <span>Add Location</span>
-        </button>
-      </div>
-
-      <!-- Region filter -->
-      <div class="filter-bar">
-        <div class="search-box">
-          <i data-lucide="search"></i>
-          <input type="text" id="locationSearch" placeholder="Search locations...">
-        </div>
-        <div class="filter-chips" id="regionFilter">
-          <button class="chip active" data-region="all">All</button>
-        </div>
-      </div>
-
-      <!-- Location cards -->
-      <div class="loc-grid" id="locationsGrid"></div>
     </section>
 
     <!-- ===== LINKS SECTION ===== -->
@@ -559,7 +529,6 @@
   </footer>
 
   <script src="./app.js"></script>
-  <script src="./locations.js"></script>
   <script src="./weather.js"></script>
 </body>
 </html>
