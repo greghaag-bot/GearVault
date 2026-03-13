@@ -5019,11 +5019,16 @@
 
   // Expose for global access (used by inline onclick handlers and app.js init)
   window.initLocations = initLocations;
+  function getLocations() {
+    return locations.slice();
+  }
+
   window._locModule = {
     openLocationModal,
     saveLocation,
     deleteLocation,
     addPhotoPrompt,
-    removePhoto
+    removePhoto,
+    getLocations
   };
 })();

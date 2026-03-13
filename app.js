@@ -75,6 +75,7 @@ function init() {
   renderLinks();
   renderTechniques();
   if (typeof initLocations === 'function') initLocations();
+  if (window._notesModule && typeof window._notesModule.initNotes === 'function') window._notesModule.initNotes();
   updateStats();
   bindEvents();
   lucide.createIcons();

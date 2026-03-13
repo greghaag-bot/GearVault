@@ -48,6 +48,7 @@
         <a href="#" class="nav-link active" data-nav="gear">My Gear</a>
         <a href="#" class="nav-link" data-nav="trip">Gear Planner</a>
         <a href="#" class="nav-link" data-nav="locations">Locations</a>
+        <a href="#" class="nav-link" data-nav="notes">Notes</a>
         <a href="#" class="nav-link" data-nav="links">Links</a>
         <a href="#" class="nav-link" data-nav="techniques">Techniques</a>
         <a href="#" class="nav-link" data-nav="resources">Resources</a>
@@ -68,6 +69,7 @@
       <a href="#" class="mobile-link active" data-nav="gear">My Gear</a>
       <a href="#" class="mobile-link" data-nav="trip">Gear Planner</a>
       <a href="#" class="mobile-link" data-nav="locations">Locations</a>
+      <a href="#" class="mobile-link" data-nav="notes">Notes</a>
       <a href="#" class="mobile-link" data-nav="links">Links</a>
       <a href="#" class="mobile-link" data-nav="techniques">Techniques</a>
       <a href="#" class="mobile-link" data-nav="resources">Resources</a>
@@ -225,6 +227,50 @@
 
       <!-- Location cards -->
       <div class="loc-grid" id="locationsGrid"></div>
+    </section>
+
+    <!-- ===== NOTES SECTION ===== -->
+    <section class="section hidden" id="section-notes">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Notes</h2>
+          <p class="section-desc">Field notes, shot ideas, and photography journal</p>
+        </div>
+        <div class="section-header-actions">
+          <div class="sort-select-wrap">
+            <select id="notesSortSelect" class="sort-select">
+              <option value="newest">Newest First</option>
+              <option value="oldest">Oldest First</option>
+              <option value="alpha">A — Z</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" id="addNoteBtn">
+            <i data-lucide="plus"></i>
+            <span>New Note</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row" id="notesStats"></div>
+
+      <!-- Search + Category Filter -->
+      <div class="filter-bar">
+        <div class="search-box">
+          <i data-lucide="search"></i>
+          <input type="text" id="notesSearch" placeholder="Search notes, tags, content...">
+        </div>
+        <div class="filter-chips" id="notesCategoryFilter"></div>
+      </div>
+
+      <!-- Tag Cloud -->
+      <div class="notes-tag-cloud" id="notesTagCloud"></div>
+
+      <!-- Notes Grid -->
+      <div class="notes-grid" id="notesGrid"></div>
+
+      <!-- Empty state -->
+      <div id="notesEmpty" class="empty-state"></div>
     </section>
 
     <!-- ===== LINKS SECTION ===== -->
@@ -560,6 +606,7 @@
 
   <script src="./app.js"></script>
   <script src="./locations.js"></script>
+  <script src="./notes.js"></script>
   <script src="./weather.js"></script>
 </body>
 </html>
